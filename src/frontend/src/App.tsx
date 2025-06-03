@@ -24,7 +24,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router basename="/app">
+      <Router>
         <AuthProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
