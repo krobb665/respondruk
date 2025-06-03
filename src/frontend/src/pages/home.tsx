@@ -1,274 +1,304 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircleIcon, ShieldCheckIcon, ClockIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { Container, Row, Col, Card, Button, Navbar, Nav } from 'react-bootstrap';
+import { 
+  BellFill, 
+  PeopleFill, 
+  GraphUp, 
+  GeoAltFill, 
+  ShieldLockFill, 
+  ClockFill,
+  CheckCircleFill
+} from 'react-bootstrap-icons';
 
 const features = [
   {
     name: 'Real-time Alerts',
-    description:
-      'Get instant notifications for critical incidents and emergencies as they happen, ensuring you\'re always in the loop.',
-    icon: ClockIcon,
+    description: 'Get instant notifications for critical incidents and emergencies as they happen, ensuring you\'re always in the loop.',
+    icon: BellFill,
   },
   {
     name: 'Team Collaboration',
-    description:
-      'Coordinate with your team efficiently with built-in chat, task assignment, and progress tracking.',
-    icon: ShieldCheckIcon,
+    description: 'Coordinate with your team efficiently with built-in chat, task assignment, and progress tracking.',
+    icon: PeopleFill,
   },
   {
     name: 'Comprehensive Reporting',
-    description:
-      'Generate detailed reports and analytics to improve your incident response times and team performance.',
-    icon: CheckCircleIcon,
+    description: 'Generate detailed reports and analytics to improve your emergency response strategies.',
+    icon: GraphUp,
+  },
+  {
+    name: 'Resource Tracking',
+    description: 'Keep track of all your emergency response resources in real-time.',
+    icon: GeoAltFill,
+  },
+  {
+    name: 'Secure Platform',
+    description: 'Enterprise-grade security to keep your data safe and compliant with industry standards.',
+    icon: ShieldLockFill,
+  },
+  {
+    name: '24/7 Support',
+    description: 'Round-the-clock support from our team of emergency response experts.',
+    icon: ClockFill,
   },
 ];
 
 const plans = [
   {
-    name: 'Starter',
-    price: 49,
+    name: 'Basic',
     description: 'Perfect for small teams getting started with incident management.',
+    price: 29,
     features: [
-      'Up to 10 team members',
+      'Up to 10 users',
       'Basic incident reporting',
       'Email support',
-      'Basic analytics',
+      '1GB storage',
     ],
-    cta: 'Get Started',
+    cta: 'Get started',
     featured: false,
   },
   {
     name: 'Professional',
+    description: 'For growing teams that need advanced features and support.',
     price: 99,
-    description: 'For growing teams that need more advanced features and support.',
     features: [
-      'Up to 50 team members',
-      'Advanced incident reporting',
-      'Priority email & chat support',
-      'Advanced analytics & reporting',
-      'Custom workflows',
-      'API access',
+      'Up to 50 users',
+      'Advanced analytics',
+      'Priority support',
+      '10GB storage',
+      'Custom branding',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Start free trial',
     featured: true,
   },
   {
     name: 'Enterprise',
+    description: 'For organizations with complex incident management needs.',
     price: 'Custom',
-    description: 'For organizations with complex needs and dedicated support.',
     features: [
-      'Unlimited team members',
-      'Dedicated account manager',
-      '24/7 priority support',
+      'Unlimited users',
+      'Advanced security',
+      '24/7 dedicated support',
       'Custom integrations',
-      'On-premises deployment',
-      'Training & onboarding',
+      'Unlimited storage',
     ],
-    cta: 'Contact Sales',
+    cta: 'Contact sales',
     featured: false,
   },
 ];
 
-export default function HomePage() {
+const HomePage: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="d-flex flex-column min-vh-100">
+      {/* Navigation */}
+      <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
+        <Container>
+          <Navbar.Brand as={Link} to="/">Respondr UK</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/features">Features</Nav.Link>
+              <Nav.Link as={Link} to="/pricing">Pricing</Nav.Link>
+            </Nav>
+            <Nav>
+              <Nav.Link as={Link} to="/login" className="me-2">Login</Nav.Link>
+              <Button as={Link} to="/register" variant="primary">Get Started</Button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
       {/* Hero Section */}
-      <div className="relative bg-gray-900 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              <div className="sm:text-center lg:text-left">
-                <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
-                  <span className="block">Incident Response</span>
-                  <span className="block text-primary-400">Made Simple</span>
-                </h1>
-                <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  Streamline your emergency response with our comprehensive incident management platform. 
-                  Coordinate your team, track incidents, and ensure safety with ease.
-                </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-md shadow">
-                    <Link
-                      to="/login"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10"
-                    >
-                      Get started
-                    </Link>
-                  </div>
-                  <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                    <Link
-                      to="#features"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
-                    >
-                      Learn more
-                    </Link>
-                  </div>
-                </div>
+      <section className="py-5 bg-primary text-white">
+        <Container className="py-5">
+          <Row className="align-items-center">
+            <Col lg={6} className="text-center text-lg-start mb-5 mb-lg-0">
+              <h1 className="display-4 fw-bold mb-4">
+                Incident Management <span className="text-warning">Made Simple</span>
+              </h1>
+              <p className="lead mb-4">
+                Streamline your emergency response operations with our comprehensive incident management platform.
+                From real-time alerts to resource tracking, we've got you covered.
+              </p>
+              <div className="d-flex gap-3">
+                <Button as={Link} to="/register" variant="light" size="lg" className="px-4">
+                  Get Started
+                </Button>
+                <Button as={Link} to="/about" variant="outline-light" size="lg" className="px-4">
+                  Learn More
+                </Button>
               </div>
-            </main>
-          </div>
-        </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <img
-            className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-            alt="Emergency response team"
-          />
-        </div>
-      </div>
+            </Col>
+            <Col lg={6}>
+              <img 
+                src="https://via.placeholder.com/600x400" 
+                alt="Incident Management" 
+                className="img-fluid rounded-3 shadow"
+              />
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
       {/* Features Section */}
-      <div id="features" className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center">
-            <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Features</h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              A better way to manage incidents
-            </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              Our platform is designed to help you respond to incidents faster and more efficiently.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
-              {features.map((feature) => (
-                <div key={feature.name} className="relative">
-                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
-                    <feature.icon className="h-6 w-6" aria-hidden="true" />
-                  </div>
-                  <div className="ml-16">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900">{feature.name}</h3>
-                    <p className="mt-2 text-base text-gray-500">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <section className="py-5">
+        <Container className="py-5">
+          <Row className="text-center mb-5">
+            <Col lg={8} className="mx-auto">
+              <span className="text-primary fw-bold">Faster Response</span>
+              <h2 className="display-5 fw-bold mb-3">
+                Everything you need to manage incidents effectively
+              </h2>
+              <p className="lead text-muted">
+                Our platform provides all the tools and features you need to coordinate emergency responses,
+                track resources, and ensure optimal outcomes.
+              </p>
+            </Col>
+          </Row>
+          <Row className="g-4">
+            {features.map((feature, index) => (
+              <Col key={index} md={6} lg={4}>
+                <Card className="h-100 border-0 shadow-sm">
+                  <Card.Body className="p-4">
+                    <div className="bg-primary bg-opacity-10 d-inline-flex p-3 rounded-3 mb-3">
+                      <feature.icon className="text-primary" size={24} />
+                    </div>
+                    <h3 className="h5">{feature.name}</h3>
+                    <p className="text-muted mb-0">{feature.description}</p>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
 
       {/* Pricing Section */}
-      <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              Simple, transparent pricing
-            </h2>
-            <p className="mt-4 text-xl text-gray-600">
-              Choose the perfect plan for your team's needs.
-            </p>
-          </div>
+      <section className="py-5 bg-light">
+        <Container className="py-5">
+          <Row className="text-center mb-5">
+            <Col lg={8} className="mx-auto">
+              <span className="text-primary fw-bold">Pricing</span>
+              <h2 className="display-5 fw-bold mb-3">Choose the right plan for your team</h2>
+              <p className="lead text-muted">
+                Flexible pricing options to suit organizations of all sizes. Start with our basic plan
+                and upgrade as your needs grow.
+              </p>
+            </Col>
+          </Row>
+          <Row className="g-4 justify-content-center">
+            {plans.map((plan, index) => (
+              <Col key={index} md={6} lg={4}>
+                <Card className={`h-100 border-0 ${plan.featured ? 'border-primary border-2' : 'border'} shadow-sm`}>
+                  {plan.featured && (
+                    <div className="bg-primary text-white text-center py-2 small fw-bold">
+                      MOST POPULAR
+                    </div>
+                  )}
+                  <Card.Body className="p-4">
+                    <div className="text-center mb-4">
+                      <h3 className={`h4 mb-3 ${plan.featured ? 'text-primary' : ''}`}>
+                        {plan.name}
+                      </h3>
+                      <div className="d-flex justify-content-center align-items-baseline mb-2">
+                        <span className={`display-5 fw-bold ${plan.featured ? 'text-primary' : ''}`}>
+                          ${plan.price}
+                        </span>
+                        {typeof plan.price === 'number' && (
+                          <span className="text-muted ms-2">/month</span>
+                        )}
+                      </div>
+                      <p className="text-muted mb-0">{plan.description}</p>
+                    </div>
+                    
+                    <ul className="list-unstyled mb-4">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="mb-2 d-flex align-items-start">
+                          <CheckCircleFill className={`me-2 mt-1 ${plan.featured ? 'text-primary' : 'text-success'}`} />
+                          <span className={plan.featured ? 'text-dark' : 'text-muted'}>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-          <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0">
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`border rounded-lg shadow-sm divide-y ${
-                  plan.featured
-                    ? 'border-primary-500 ring-2 ring-primary-500'
-                    : 'border-gray-200'
-                }`}
-              >
-                <div className="p-6">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900">{plan.name}</h3>
-                  <p className="mt-4 text-sm text-gray-500">{plan.description}</p>
-                  <p className="mt-8">
-                    <span className="text-4xl font-extrabold text-gray-900">
-                      ${plan.price}
-                    </span>{' '}
-                    <span className="text-base font-medium text-gray-500">/mo</span>
-                  </p>
-                  <Link
-                    to="/register"
-                    className={`mt-8 block w-full py-3 px-6 border ${
-                      plan.featured
-                        ? 'bg-primary-600 text-white border-transparent hover:bg-primary-700'
-                        : 'bg-white text-primary-600 border-primary-200 hover:bg-gray-50'
-                    } rounded-md text-center font-medium`}
-                  >
-                    {plan.cta}
-                  </Link>
-                </div>
-                <div className="px-6 pt-6 pb-8">
-                  <h4 className="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h4>
-                  <ul className="mt-6 space-y-4">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex">
-                        <CheckCircleIcon
-                          className="flex-shrink-0 h-5 w-5 text-green-500"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3 text-base text-gray-500">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                    <Button 
+                      as={Link} 
+                      to={plan.featured ? '/register' : '/contact'}
+                      variant={plan.featured ? 'primary' : 'outline-primary'}
+                      className="w-100"
+                    >
+                      {plan.cta}
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
             ))}
-          </div>
-        </div>
-      </div>
+          </Row>
+        </Container>
+      </section>
 
       {/* CTA Section */}
-      <div className="bg-primary-700">
-        <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-            <span className="block">Ready to get started?</span>
-            <span className="block">Start your free trial today.</span>
-          </h2>
-          <p className="mt-4 text-lg leading-6 text-primary-200">
-            Join thousands of teams who trust Respondr UK for their incident management needs.
+      <section className="py-5 bg-primary text-white">
+        <Container className="py-5 text-center">
+          <h2 className="display-5 fw-bold mb-4">Ready to get started?</h2>
+          <p className="lead mb-5">
+            Join the growing network of emergency response teams using Respondr UK to save lives and manage resources effectively.
           </p>
-          <Link
-            to="/register"
-            className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-gray-50 sm:w-auto"
-          >
-            Sign up for free
-            <ArrowRightIcon className="ml-2 -mr-1 h-5 w-5" aria-hidden="true" />
-          </Link>
-        </div>
-      </div>
+          <div className="d-flex gap-3 justify-content-center">
+            <Button as={Link} to="/register" variant="light" size="lg" className="px-4">
+              Register Now
+            </Button>
+            <Button as={Link} to="/contact" variant="outline-light" size="lg" className="px-4">
+              Contact Sales
+            </Button>
+          </div>
+        </Container>
+      </section>
 
       {/* Footer */}
-      <footer className="bg-gray-50">
-        <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-          <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
-            <div className="px-5 py-2">
-              <Link to="/about" className="text-base text-gray-500 hover:text-gray-900">
-                About
-              </Link>
-            </div>
-            <div className="px-5 py-2">
-              <Link to="/blog" className="text-base text-gray-500 hover:text-gray-900">
-                Blog
-              </Link>
-            </div>
-            <div className="px-5 py-2">
-              <Link to="/pricing" className="text-base text-gray-500 hover:text-gray-900">
-                Pricing
-              </Link>
-            </div>
-            <div className="px-5 py-2">
-              <Link to="/contact" className="text-base text-gray-500 hover:text-gray-900">
-                Contact
-              </Link>
-            </div>
-            <div className="px-5 py-2">
-              <Link to="/privacy" className="text-base text-gray-500 hover:text-gray-900">
-                Privacy
-              </Link>
-            </div>
-            <div className="px-5 py-2">
-              <Link to="/terms" className="text-base text-gray-500 hover:text-gray-900">
-                Terms
-              </Link>
-            </div>
-          </nav>
-          <p className="mt-8 text-center text-base text-gray-400">
-            &copy; {new Date().getFullYear()} Respondr UK. All rights reserved.
-          </p>
-        </div>
+      <footer className="bg-dark text-white py-5 mt-auto">
+        <Container>
+          <Row>
+            <Col md={4} className="mb-4 mb-md-0">
+              <h5>Respondr UK</h5>
+              <p className="text-muted">
+                Empowering emergency response teams with cutting-edge incident management solutions.
+              </p>
+            </Col>
+            <Col md={2} className="mb-4 mb-md-0">
+              <h5>Product</h5>
+              <ul className="list-unstyled">
+                <li><Link to="/features" className="text-muted text-decoration-none">Features</Link></li>
+                <li><Link to="/pricing" className="text-muted text-decoration-none">Pricing</Link></li>
+                <li><Link to="/integrations" className="text-muted text-decoration-none">Integrations</Link></li>
+              </ul>
+            </Col>
+            <Col md={2} className="mb-4 mb-md-0">
+              <h5>Company</h5>
+              <ul className="list-unstyled">
+                <li><Link to="/about" className="text-muted text-decoration-none">About Us</Link></li>
+                <li><Link to="/careers" className="text-muted text-decoration-none">Careers</Link></li>
+                <li><Link to="/blog" className="text-muted text-decoration-none">Blog</Link></li>
+              </ul>
+            </Col>
+            <Col md={2}>
+              <h5>Support</h5>
+              <ul className="list-unstyled">
+                <li><Link to="/help" className="text-muted text-decoration-none">Help Center</Link></li>
+                <li><Link to="/contact" className="text-muted text-decoration-none">Contact Us</Link></li>
+                <li><Link to="/privacy" className="text-muted text-decoration-none">Privacy Policy</Link></li>
+              </ul>
+            </Col>
+          </Row>
+          <hr className="my-4" />
+          <div className="text-center text-muted">
+            <small>© {new Date().getFullYear()} Respondr UK. All rights reserved.</small>
+          </div>
+        </Container>
       </footer>
     </div>
   );
-}
+};
+
+export default HomePage;

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
 import { HomeIcon, UserGroupIcon, ClipboardDocumentListIcon, ChartBarIcon, Cog6ToothIcon } from '@heroicons/react/24/outline';
 

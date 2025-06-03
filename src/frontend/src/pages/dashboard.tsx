@@ -7,7 +7,7 @@ import {
   UsersIcon, 
   ClockIcon, 
   CheckCircleIcon,
-  XCircleIcon,
+
   ExclamationCircleIcon
 } from '@heroicons/react/24/outline';
 
@@ -150,7 +150,7 @@ function IncidentRow({ incident }: { incident: Incident }) {
 }
 
 export function DashboardPage() {
-  const [stats, setStats] = useState([
+  const [stats] = useState([
     { id: 1, title: 'Total Incidents', value: '1,234', change: 12, icon: UsersIcon },
     { id: 2, title: 'Open Incidents', value: '89', change: -5, icon: ExclamationCircleIcon },
     { id: 3, title: 'Avg. Response Time', value: '2.4h', change: -15, icon: ClockIcon },
