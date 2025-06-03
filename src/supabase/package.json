@@ -1,0 +1,14 @@
+{
+  "name": "respondr-uk-supabase",
+  "version": "1.0.0",
+  "description": "Respondr UK Supabase Client",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.0.3"
+  }
+}
