@@ -12,12 +12,13 @@ type NavigationItem = {
 export function Sidebar() {
   const location = useLocation();
   
+  // Remove /app prefix from paths since we're using basename
   const navigation: NavigationItem[] = [
-    { name: 'Dashboard', href: '/app/dashboard', icon: HomeIcon, current: location.pathname === '/app/dashboard' },
-    { name: 'Incidents', href: '/app/incidents', icon: ClipboardDocumentListIcon, current: location.pathname.startsWith('/app/incidents') },
-    { name: 'Teams', href: '/app/teams', icon: UserGroupIcon, current: location.pathname.startsWith('/app/teams') },
-    { name: 'Analytics', href: '/app/analytics', icon: ChartBarIcon, current: location.pathname.startsWith('/app/analytics') },
-    { name: 'Settings', href: '/app/settings', icon: Cog6ToothIcon, current: location.pathname.startsWith('/app/settings') },
+    { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: location.pathname.endsWith('/dashboard') },
+    { name: 'Incidents', href: '/incidents', icon: ClipboardDocumentListIcon, current: location.pathname.includes('/incidents') },
+    { name: 'Teams', href: '/teams', icon: UserGroupIcon, current: location.pathname.includes('/teams') },
+    { name: 'Analytics', href: '/analytics', icon: ChartBarIcon, current: location.pathname.includes('/analytics') },
+    { name: 'Settings', href: '/settings', icon: Cog6ToothIcon, current: location.pathname.includes('/settings') },
   ];
 
   return (

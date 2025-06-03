@@ -102,7 +102,7 @@ const IncidentsPage: React.FC = () => {
     <Container fluid className="py-4">
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 className="h2">Incident Management</h1>
-        <Link to="/app/incidents/new">
+        <Link to="/incidents/new">
           <Button variant="primary">
             <Plus size={16} className="me-2" />
             New Incident
@@ -167,7 +167,7 @@ const IncidentsPage: React.FC = () => {
                       </Link>
                     </td>
                     <td>
-                      <Link to={`/app/incidents/${incident.id}`} className="text-decoration-none text-dark">
+                      <Link to={`/incidents/${incident.id}`} className="text-decoration-none text-dark">
                         {incident.title}
                       </Link>
                     </td>
@@ -181,7 +181,7 @@ const IncidentsPage: React.FC = () => {
                           <MoreVertical size={18} />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                          <LinkContainer to={`/app/incidents/${incident.id}/edit`}>
+                          <LinkContainer to={`/incidents/${incident.id}/edit`}>
                             <Dropdown.Item>
                               <Edit size={16} className="me-2" /> Edit
                             </Dropdown.Item>
